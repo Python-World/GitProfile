@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}  
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Public Profile</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static '/css/mdb.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href=" {% static '/css/style.min.css' %}" rel="stylesheet">
+ 
+
+</head>
+
+<body class="grey lighten-3">
+	{% block content %}
+
+  <!--Main Navigation-->
+  <header>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+      <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="">
+          <strong class="blue-text">Gprofile</strong>
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link waves-effect" href="">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="">About</a>
+            </li>
+          </ul>
+
+
+        </div>
+
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+
+  </header>
+  <!--Main Navigation-->
+  <main class="pt-5 mx-lg-5">
+
+  <div class="container-fluid mt-5" > 
+    <div class="jumbotron">
+      <h2 class="display-4">Github Profile</h2>
+      <p class="lead">This is a simple utility tool, this will analyze public git profile </p>
+      <hr class="my-4">
+      <p>Github Aggregator service</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Check Profile
+      </button>    </div>
+  </div>
+</main>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+
+  <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+  <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Github Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Material input -->
+      <div class="md-form">
+        <input type="text" id="username" class="form-control">
+        <label for="username">Enter Github UserName</label>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" onclick="submit()" class="btn btn-primary">Proceed</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+  </script>
+
+<script>
+  function submit(){
+    username = document.getElementById('username').value
+    window.location = 'get_profile/'+username
+  }
+</script>
+  {% endblock %}
+</body>
+
+</html>
